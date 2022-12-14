@@ -11,9 +11,9 @@ server.use(cors())
 server.use(express.json())
 server.use(routes)
 
-// change PROD_DB_NAME to DEV_DB_NAME if in dev mode
+// change PROD_DB_NAME to DEV_DB_NAME while developing
 mongoose.connect(
-    `mongodb://127.0.0.1:27017/${process.env.PROD_DB_NAME}`
+    `mongodb://0.0.0.0:27017/${process.env.PROD_DB_NAME}`
 ).then(()=>{
     server.listen(process.env.PORT || 3000)
     console.log("Success")
